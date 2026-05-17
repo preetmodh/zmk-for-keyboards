@@ -188,7 +188,7 @@
             display-name = "NAV";
             bindings = <
 &none          &none       &none       &none         &none         &none          &kp LG(LS(Z)) &kp LG(V)   &kp LG(C)     &kp LG(X)    &kp LG(Z)    &kp BSPC
-&kp LSHIFT     &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &&kp PG_UP
+&kp LSHIFT     &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &kp PG_UP
 &kp LCTRL      &none       &none       &none         &none         &none          &kp INS     &kp DEL       &none         &kp PG_UP    &kp PG_DN    &kp PG_DN
                                        &kp HOME      &none         &none          &kp RET     &kp SPACE     &kp END
             >;
