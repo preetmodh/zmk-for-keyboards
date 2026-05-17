@@ -180,7 +180,7 @@
 &kp TAB        &kp Q       &kp W       &kp E         &kp R         &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P        &kp BSPC
 &kp LSHIFT     &kp A       &mt LALT S  &mt LCTRL D   &mt LSHFT F   &kp G          &kp H       &mt RSHFT J   &mt RCTRL K   &mt RALT L   &mt RGUI SQT &hyper
 &kp LCTRL      &kp Z       &kp X       &kp C         &kp V         &kp B          &kp N       &kp M         &kp COMMA     &kp DOT      &kp FSLH     &kp ESC
-                                        &lt MEDIA LCTRL &lt NAV SPACE &lt MOUSE LGUI &lt SYM RET &lt NUM SPACE &lt FUN RSHFT
+                                        &lt HOME LCTRL &lt NAV SPACE &lt MOUSE LGUI &lt SYM RET &lt NUM SPACE &lt FUN END
             >;
         };
 
@@ -188,9 +188,9 @@
             display-name = "NAV";
             bindings = <
 &none          &none       &none       &none         &none         &none          &kp LG(LS(Z)) &kp LG(V)   &kp LG(C)     &kp LG(X)    &kp LG(Z)    &kp BSPC
-&kp LSHIFT     &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &&kp HOME
-&kp LCTRL      &none       &none       &none         &none         &none          &kp INS     &kp DEL       &none         &kp PG_UP    &kp PG_DN    &kp END
-                                       &none         &none         &none          &kp RET     &kp SPACE     &kp RSHFT
+&kp LSHIFT     &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &&kp PG_UP
+&kp LCTRL      &none       &none       &none         &none         &none          &kp INS     &kp DEL       &none         &kp PG_UP    &kp PG_DN    &kp PG_DN
+                                       &kp HOME      &none         &none          &kp RET     &kp SPACE     &kp END
             >;
         };
 
@@ -198,9 +198,9 @@
             display-name = "NUM";
             bindings = <
 &none          &kp N7     &kp N8      &kp N9         &kp LBKT        &kp RBKT       &none       &none         &none         &none        &none        &kp BSPC
-&none          &kp N4     &kp N5      &kp N6         &kp SEMI        &kp EQUAL      &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
-&none          &kp N1     &kp N2      &kp N3         &kp GRAVE       &kp BSLH       &none       &none         &none         &none        &none        &none
-                                       &kp DOT       &kp N0        &kp MINUS      &none       &none         &none
+&kp LSHIFT     &kp N4     &kp N5      &kp N6         &kp SEMI        &kp EQUAL      &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
+&kp LCTRL      &kp N1     &kp N2      &kp N3         &kp GRAVE       &kp BSLH       &none       &none         &none         &none        &none        &none
+                                       &kp DOT       &kp N0          &kp MINUS      &kp RET     &kp SPACE     &kp END
             >;
         };
 
