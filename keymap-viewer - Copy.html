@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Corne Keymap Viewer</title>
+
+<style>
+body { background:#0f1220; color:white; font-family:sans-serif; text-align:center; }
+.topbar button { margin:5px; padding:8px 14px; border:none; border-radius:8px; background:#2a2f4a; color:white; cursor:pointer; }
+
+.row { display:flex; justify-content:center; gap:8px; margin:6px; }
+.half { display:inline-block; margin:0 40px; }
+
+.key {
+  width:50px; height:50px;
+  border-radius:10px;
+  background:#1e2238;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  font-size:11px;
+  border:1px solid #333;
+}
+
+.modtap { background:linear-gradient(135deg,#1e2d4d 50%,#1a3a2a 50%); }
+.active { border:2px solid #e94560; }
+</style>
+</head>
+
+<body>
+
+<h2>Corne Keymap</h2>
+
+<div class="topbar">
+  <button onclick="setLayer('base')">BASE</button>
+  <button onclick="setLayer('nav')">NAV</button>
+  <button onclick="setLayer('num')">NUM</button>
+  <button onclick="setLayer('media')">MEDIA</button>
+  <button onclick="setLayer('sym')">SYM</button>
+  <button onclick="setLayer('fun')">FUN</button>
+  <button onclick="setLayer('mouse')">MOUSE</button>
+</div>
+
+<div id="keyboard"></div>
+
+<script>
+
+let currentLayer = "base";
+
+/* =========================
+   ALL LAYERS (FROM YOUR ZMK)
+========================= */
+
+const layers = {
+
+base: [
+["TAB","Q","W","E","R","T"],
+["LSHFT","A","S\nALT","D\nCTRL","F\nSHIFT","G"],
+["LCTRL","Z","X","C","V","B"],
+
+["Y","U","I","O","P","BSPC"],
+["H","J\nSHIFT","K\nCTRL","L\nALT","'\nGUI","HYP"],
+["N","M",",",".","/","ESC"],
+
+["HOME\nmedia","SPACE\nnav","GUI\nmouse","ENTER\nsym","SPACE\nnum","END\nfun"]
+],
+
+nav: [
+["","","","","",""],
+["SHIFT","GUI","ALT","CTRL","SHIFT",""],
+["CTRL","","","","",""],
+
+["UNDO","PASTE","COPY","CUT","REDO","BSPC"],
+["LEFT","DOWN","UP","RIGHT","CAPS","PGUP"],
+["INS","DEL","","PGUP","PGDN","PGDN"],
+
+["HOME","","","ENTER","SPACE","END"]
+],
+
+num: [
+["","7","8","9","[","]"],
+["SHIFT","4","5","6",";","="],
+["CTRL","1","2","3","`","\\"],
+
+["","","","","","BSPC"],
+["","RSHIFT","RCTRL","RALT","RGUI",""],
+["","","","","",""],
+
+[".","0","-","ENTER","SPACE","END"]
+],
+
+media: [
+["","","","","",""],
+["GUI","ALT","CTRL","SHIFT","",""],
+["","","","","",""],
+
+["RGB","EFF","HUE","SAT","",""],
+["PWR","PREV","VOL-","VOL+","NEXT",""],
+["OUT","BT0","BT1","BT2","BT3","CLR"],
+
+["","","","STOP","PLAY","MUTE"]
+],
+
+sym: [
+["","&","*","(","[","]"],
+["","$","%","^",":","+"],
+["","!","@","#","~","|"],
+
+["","","","","",""],
+["","RSHIFT","RCTRL","RALT","RGUI",""],
+["","","","","",""],
+
+["("," )","_","","",""]
+],
+
+fun: [
+["","F12","F7","F8","F9","PRT"],
+["","F11","F4","F5","F6","SCR"],
+["","F10","F1","F2","F3","PAUSE"],
+
+["","","","","",""],
+["","RSHIFT","RCTRL","RALT","RGUI",""],
+["","","","","",""],
+
+["APP","SPACE","TAB","","",""]
+],
+
+mouse: [
+["","","","","",""],
+["GUI","ALT","CTRL","SHIFT","",""],
+["","","","","",""],
+
+["","","","","",""],
+["←","↓","↑","→","",""],
+["SL","SD","SU","SR","",""],
+
+["","","","MCLK","LCLK","RCLK"]
+]
+
+};
+
+/* ========================= */
+
+function setLayer(layer){
+  currentLayer = layer;
+  render();
+}
+
+function createKey(label){
+  const el = document.createElement("div");
+  el.className = "key";
+
+  if(!label) return el;
+
+  const parts = label.split("\n");
+
+  el.innerHTML = `
+    <div>${parts[0]}</div>
+    ${parts[1] ? `<small>${parts[1]}</small>` : ""}
+  `;
+
+  if(parts[1]) el.classList.add("modtap");
+  if(parts[1] && parts[1] === currentLayer) el.classList.add("active");
+
+  return el;
+}
+
+function render(){
+  const kb = document.getElementById("keyboard");
+  kb.innerHTML = "";
+
+  const data = layers[currentLayer];
+
+  const left = document.createElement("div");
+  left.className = "half";
+
+  const right = document.createElement("div");
+  right.className = "half";
+
+  for(let i=0;i<3;i++){
+    const row = document.createElement("div");
+    row.className = "row";
+    data[i].forEach(k => row.appendChild(createKey(k)));
+    left.appendChild(row);
+  }
+
+  for(let i=3;i<6;i++){
+    const row = document.createElement("div");
+    row.className = "row";
+    data[i].forEach(k => row.appendChild(createKey(k)));
+    right.appendChild(row);
+  }
+
+  const thumbs = document.createElement("div");
+  thumbs.className = "row";
+  data[6].forEach(k => thumbs.appendChild(createKey(k)));
+
+  kb.appendChild(left);
+  kb.appendChild(right);
+  kb.appendChild(thumbs);
+}
+
+render();
+
+</script>
+
+</body>
+</html>
