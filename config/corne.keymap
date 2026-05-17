@@ -178,28 +178,28 @@
             display-name = "BASE";
             bindings = <
 &kp TAB        &kp Q       &kp W       &kp E         &kp R         &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P        &kp BSPC
-&mt LCTRL ESC  &mt LGUI A  &mt LALT S  &mt LCTRL D   &mt LSHFT F   &kp G          &kp H       &mt RSHFT J   &mt RCTRL K   &mt RALT L   &mt RGUI SQT &hyper
-&kp LSHFT      &kp Z       &kp X       &kp C         &kp V         &kp B          &kp N       &kp M         &kp COMMA     &kp DOT      &kp FSLH     &kp ESC
-                                        &lt MEDIA ESC &lt NAV SPACE &lt MOUSE TAB  &lt SYM RET &lt NUM BSPC  &lt FUN DEL
+&kp LSHIFT     &kp A       &mt LALT S  &mt LCTRL D   &mt LSHFT F   &kp G          &kp H       &mt RSHFT J   &mt RCTRL K   &mt RALT L   &mt RGUI SQT &hyper
+&kp LCTRL      &kp Z       &kp X       &kp C         &kp V         &kp B          &kp N       &kp M         &kp COMMA     &kp DOT      &kp FSLH     &kp ESC
+                                        &lt MEDIA LCTRL &lt NAV SPACE &lt MOUSE LGUI &lt SYM RET &lt NUM SPACE &lt FUN RSHFT
             >;
         };
 
         nav_layer {
             display-name = "NAV";
             bindings = <
-&none          &none       &none       &none         &none         &none          &kp LG(LS(Z)) &kp LG(V)   &kp LG(C)     &kp LG(X)    &kp LG(Z)    &none
-&none          &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &none
-&none          &none       &none       &none         &none         &none          &kp INS     &kp HOME      &kp PG_DN     &kp PG_UP    &kp END      &none
-                                       &none         &none         &none          &kp RET     &kp BSPC      &kp DEL
+&none          &none       &none       &none         &none         &none          &kp LG(LS(Z)) &kp LG(V)   &kp LG(C)     &kp LG(X)    &kp LG(Z)    &kp BSPC
+&kp LSHIFT     &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none          &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS     &&kp HOME
+&kp LCTRL      &none       &none       &none         &none         &none          &kp INS     &kp DEL       &none         &kp PG_UP    &kp PG_DN    &kp END
+                                       &none         &none         &none          &kp RET     &kp SPACE     &kp RSHFT
             >;
         };
 
         num_layer {
             display-name = "NUM";
             bindings = <
-&none          &kp LBKT    &kp N7      &kp N8        &kp N9        &kp RBKT       &none       &none         &none         &none        &none        &none
-&none          &kp SEMI    &kp N4      &kp N5        &kp N6        &kp EQUAL      &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
-&none          &kp GRAVE   &kp N1      &kp N2        &kp N3        &kp BSLH       &none       &none         &none         &none        &none        &none
+&none          &kp N7     &kp N8      &kp N9         &kp LBKT        &kp RBKT       &none       &none         &none         &none        &none        &kp BSPC
+&none          &kp N4     &kp N5      &kp N6         &kp SEMI        &kp EQUAL      &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
+&none          &kp N1     &kp N2      &kp N3         &kp GRAVE       &kp BSLH       &none       &none         &none         &none        &none        &none
                                        &kp DOT       &kp N0        &kp MINUS      &none       &none         &none
             >;
         };
@@ -217,10 +217,10 @@
         sym_layer {
             display-name = "SYM";
             bindings = <
-&none          &kp LBRC    &kp AMPS    &kp ASTRK     &kp LPAR      &kp RBRC       &none       &none         &none         &none        &none        &none
-&none          &kp COLON   &kp DLLR    &kp PRCNT     &kp CARET     &kp PLUS       &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
-&none          &kp TILDE   &kp EXCL    &kp AT        &kp HASH      &kp PIPE       &none       &none         &none         &none        &none        &none
-                                       &kp LPAR      &kp RPAR      &kp UNDER      &none       &none         &none
+&none          &kp AMPS    &kp ASTRK     &kp LPAR      &kp LBRC    &kp RBRC       &none       &none         &none         &none        &none        &none
+&none          &kp DLLR    &kp PRCNT     &kp CARET     &kp COLON   &kp PLUS       &none       &kp RSHFT     &kp RCTRL     &kp RALT     &kp RGUI     &none
+&none          &kp EXCL    &kp AT        &kp HASH      &kp TILDE   &kp PIPE       &none       &none         &none         &none        &none        &none
+                                         &kp LPAR      &kp RPAR    &kp UNDER      &none       &none         &none
             >;
         };
 
